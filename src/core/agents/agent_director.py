@@ -42,21 +42,21 @@ class BaseDirectorAgent(ABC):
             instructions=instructions,
             add_datetime_to_instructions=True,
             enable_agentic_context=True,
-            share_memeber_interactions=True,
+            share_member_interactions=True,
             show_members_responses=show_members_responses,
             markdown=True,
             **kwargs,
         )
 
-        @property
-        def director(self) -> Team:
-            """
-            Get the agent director.
-            """
-            return self._director
+    @property
+    def director(self) -> Team:
+        """
+        Get the agent director.
+        """
+        return self._director
 
-        def execute(self, *args, **kwargs):
-            """
-            Execute the director agent.
-            """
-            return self._director.execute(*args, **kwargs)
+    def execute(self, message: str, **kwargs):
+        """
+        Execute the director agent.
+        """
+        return self._director.run(message=message, **kwargs)

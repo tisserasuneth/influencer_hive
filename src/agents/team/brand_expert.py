@@ -1,11 +1,9 @@
 from src.core.agents.agent import BaseAgent
-from src.core.models.brand_expert import BrandExpert
+from src.core.models import BrandExpert
 
 from agno.tools.crawl4ai import Crawl4aiTools
 from agno.tools.wikipedia import WikipediaTools
 from agno.tools.googlesearch import GoogleSearchTools
-
-from textwrap import dedent
 
 
 class BrandExpertAgent(BaseAgent):
@@ -13,13 +11,13 @@ class BrandExpertAgent(BaseAgent):
     Brand expert agent for providing insights on the given brand.
     """
 
-    def __init__(self, model):
+    def __init__(self):
         name = "Brand Expert Agent"
         role = "You are an expert in brand analysis and insights."
         description = (
-            dedent("""\
-            "Responsible for analyzing given brand and/or product and providing detailed insights about it."
-            """),
+            (
+                "Responsible for analyzing given brand and/or product and providing detailed insights about it."
+            ),
         )
         instructions = [
             "You are the brand analysis expert responsible for providing insights on the given brand.",

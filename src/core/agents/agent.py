@@ -30,9 +30,9 @@ class BaseAgent(ABC):
             **kwargs,
         )
 
-        @property
-        def agent(self) -> Agent:
-            """
-            Get the agent.
-            """
-            return self._agent
+    @property
+    def agent(self) -> Agent:
+        """
+        Get the agent.
+        """
+        return self._agent
