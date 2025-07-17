@@ -1,6 +1,10 @@
+import dotenv
+import json
 from agno.models.openai import OpenAIChat
 from src.agents.agent_director import DirectorAgent
+from agno.utils.pprint import pprint_run_response
 
+dotenv.load_dotenv()
 
 def main():
     """
@@ -9,12 +13,13 @@ def main():
     model = OpenAIChat(id="gpt-4o")
     director_agent = DirectorAgent(model=model)
 
-    brand = "Nike"
+    brand = "Ben and Jerry's"
     # Execute the director agent
     response = director_agent.execute(
-        message=f"Analyze the brand {brand} and provide insights."
+        message=f"Analyze the brand {brand} and provide the top influencers"
     )
-    print(response)
+    
+    pprint_run_response(response, markdown=True)
 
 
 if __name__ == "__main__":

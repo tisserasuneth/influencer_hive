@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from agno.models.base import Model
 from agno.team.team import Team
-from agno.agent import Agent
+from agno.agent import Agent, RunResponse
 from typing import List
 from enum import Enum
 
@@ -55,7 +55,7 @@ class BaseDirectorAgent(ABC):
         """
         return self._director
 
-    def execute(self, message: str, **kwargs):
+    def execute(self, message: str, **kwargs) -> RunResponse:
         """
         Execute the director agent.
         """
